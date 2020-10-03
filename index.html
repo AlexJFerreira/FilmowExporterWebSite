@@ -146,7 +146,7 @@
       <fieldset>
         <legend>
       </fieldset>
-      <button type="Enviar" onclick="UserAction()" href="/">Submit</button>
+      <button type="Enviar" onclick="UserAction()" href="/">Enviar</button>
     </form>
     </div> 
   </body>
@@ -159,6 +159,13 @@
              alert(this.responseText);
          }
     };
+	
+	var email = document.getElementById('emailId');
+    var user = document.getElementById('usuarioId');
+	
+	var url = "exportador-filmow.herokuapp.com/filmow/user/" + user.value + "/email/" + email.value;
+	
+	console.log(url);
     xhttp.open("GET", "exportador-filmow.herokuapp.com/filmow/user/#usuarioId/email/#emailId", true);
     xhttp.setRequestHeader("Content-type", "application/json");
 } </script>
