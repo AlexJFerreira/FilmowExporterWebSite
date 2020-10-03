@@ -163,11 +163,13 @@
 	var email = document.getElementById('emailId');
     var user = document.getElementById('usuarioId');
 	
-	var url = "exportador-filmow.herokuapp.com/filmow/user/" + user.value + "/email/" + email.value;
-	
-	console.log(url);
-    xhttp.open("GET", url, true);
-    xhttp.setRequestHeader("Content-type", "application/json");
+	var url2 = "http://exportador-filmow.herokuapp.com/filmow//watchedMovies?filmowUserName=" + user.value +"&userEmail=" + email.value;
+	const url = new URL(url2);
+
+	console.log(url2);
+    xhttp.open("GET", url2, true);
+	xhttp.setRequestHeader("Content-type", "application/json");
+
 } </script>
     
 </html>
