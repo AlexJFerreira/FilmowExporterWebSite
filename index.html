@@ -139,15 +139,28 @@
           <h3>Detalhes da Exportação</h3>
         </legend>
         <div  class="account-details">
-          <div><label>Email*</label><input type="text" name="name" required></div>
-          <div><label>Usuario filmow*</label><input type="text" name="name" required></div>
+          <div><label>Email*</label><input type="text" id="emailId" name="email" required></div>
+          <div><label>Usuario filmow*</label><input type="text" id="usuarioId" name="usuario" required></div>
         </div>
       </fieldset>
       <fieldset>
         <legend>
       </fieldset>
-      <button type="Enviar" href="/">Submit</button>
+      <button type="Enviar" onclick="UserAction()" href="/">Submit</button>
     </form>
     </div> 
   </body>
+    
+    <script> 
+      function UserAction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             alert(this.responseText);
+         }
+    };
+    xhttp.open("GET", "exportador-filmow.herokuapp.com/filmow/user/#usuarioId/email/#emailId", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+} </script>
+    
 </html>
