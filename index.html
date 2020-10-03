@@ -160,14 +160,20 @@
          }
     };
 	
-	var email = document.getElementById('emailId');
-    var user = document.getElementById('usuarioId');
+	var email = document.getElementById('emailId').value;
+    var user = document.getElementById('usuarioId').value;
 	
-	var url2 = "http://exportador-filmow.herokuapp.com/filmow/watchedMovies?filmowUserName=" + user.value +"&userEmail=" + email.value;
-	const url = new URL(url2);
 
-	console.log(url2);
-    xhttp.open("GET", url2, true);
+	const target = new URL('http://exportador-filmow.herokuapp.com/filmow/watchedMovies');
+	const params = new URLSearchParams();
+
+
+params.set('filmowUserName', user);
+params.set('userEmail', email);
+target.search = params.toString();
+
+	console.log("target: "+target);
+    xhttp.open("GET", target, true);
 	xhttp.setRequestHeader("Content-type", "application/json");
 
 } </script>
